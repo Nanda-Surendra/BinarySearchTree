@@ -36,12 +36,22 @@ namespace ConsoleAppForBinarySearch
 
         public static void SortTreeAscending(Node root, List<Node> allNodes)
         {
-            //Implement the logic
+            if (root != null)
+            {
+                SortTreeAscending(root.Left, allNodes);
+                allNodes.Add(root);
+                SortTreeAscending(root.Right, allNodes);
+            }
         }
 
         public static void SortTreeDescending(Node root, List<Node> allNodes)
         {
-            //Implement the logic
+            if (root != null)
+            {
+                SortTreeDescending(root.Right, allNodes);
+                allNodes.Add(root);
+                SortTreeDescending(root.Left, allNodes);
+            }
         }
     }
 }
